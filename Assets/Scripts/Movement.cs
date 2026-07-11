@@ -20,7 +20,13 @@ public class Movement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    
+    private void OnDrawGizmos()
+    {
+        if (groundCheck == null) return;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+    }
+
     void Update()
     {
         bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Check if the player is grounded using OverlapCircle
