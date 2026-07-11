@@ -44,5 +44,7 @@ public class Movement : MonoBehaviour
             rb.linearVelocity = new Vector2(horizontalInput * speed, jumpForce);
             anim.SetBool("isGrounded", false);
         }
+
+        Debug.Log("isGrounded: " + isGrounded + " | Speed: " + Mathf.Abs(horizontalInput));
     }
 }
