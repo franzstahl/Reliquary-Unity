@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,89 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 5 - fall_0
+      name: Fall_0
       rect:
         serializedVersion: 2
-        x: 108
-        y: 47
-        width: 19
-        height: 40
+        x: 0
+        y: 0
+        width: 240
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b78115a22c4faf0a0800000000000000
-      internalID: -6846891168692627333
+      spriteID: 7d81313d263a7df4fa3c279cdd31a75d
+      internalID: 1106735183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5 - fall_1
+      name: Fall_1
       rect:
         serializedVersion: 2
-        x: 347
-        y: 47
-        width: 21
-        height: 40
+        x: 240
+        y: 0
+        width: 240
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dd378449a2e6075b0800000000000000
-      internalID: -5372673226297543715
+      spriteID: 750d1074b45a2434c8931150b8851ff2
+      internalID: -1308028873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5 - fall_2
+      name: Fall_2
       rect:
         serializedVersion: 2
-        x: 586
-        y: 47
-        width: 22
-        height: 40
+        x: 480
+        y: 0
+        width: 240
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e89cd6b0b3b658240800000000000000
-      internalID: 4793355279744747918
+      spriteID: 036131c828d3e7249b893ce95715fc74
+      internalID: 1126455714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5 - fall_3
+      name: Fall_3
       rect:
         serializedVersion: 2
-        x: 827
-        y: 47
-        width: 21
-        height: 40
+        x: 720
+        y: 0
+        width: 240
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c97ece801c503ad20800000000000000
-      internalID: 3288478479547164572
+      spriteID: 979464fa6daf10d49b4d9e285349b6c3
+      internalID: -503036637
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1c912fe6ed8d961488eb9295495875ee
     internalID: 0
     vertices: []
     indices: 
@@ -221,12 +221,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":240.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      5 - fall_0: -6846891168692627333
-      5 - fall_1: -5372673226297543715
-      5 - fall_2: 4793355279744747918
-      5 - fall_3: 3288478479547164572
+      Fall_0: 1106735183
+      Fall_1: -1308028873
+      Fall_2: 1126455714
+      Fall_3: -503036637
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
