@@ -1,12 +1,20 @@
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
    [SerializeField] private float speed;
    [SerializeField] private Transform groundCheck; 
    [SerializeField] private float groundCheckRadius;
    [SerializeField] private LayerMask groundLayer; // LayerMask to specify which layers are considered ground
    [SerializeField] private float jumpForce; // Force applied to the player when jumping
+   [SerializeField] private float dashForce; 
+   [SerializeField] private float dashCooldown = 2.5f;
+
+   private float lastDashTime;
+   private float dashDirection;
+   private bool isDashing;
+   private float dashDuration = 0.33f;
+
    private int maxJumps = 2;
    private int jumpsRemaining; 
 
@@ -16,17 +24,23 @@ public class Movement : MonoBehaviour
 
 
     
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
     }
 
+    private void EndDash()
+    {
+        isDashing = false; // Reset the dashing state to false after the dash duration ends
+    }
     
 
-    void Update()
+    private void Update()
     {
+        if (isDashing) return; // If the player is currently dashing, skip the rest of the Update logic
+
         // Run logic
         float horizontalInput = Input.GetAxisRaw("Horizontal"); // Get horizontal input from player
         anim.SetFloat("Speed", Mathf.Abs(horizontalInput)); // Set "Speed" parameter in Animator based on absolute value of horizontal input
@@ -41,6 +55,7 @@ public class Movement : MonoBehaviour
             sr.flipX = false; // Reset the sprite flip when moving right
         }
 
+
         // Jump logic
         bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Check if the player is grounded using OverlapCircle
         anim.SetBool("isGrounded", isGrounded); // Set the "isGrounded" parameter in Animator based on whether the player is grounded
@@ -54,11 +69,33 @@ public class Movement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(horizontalInput * speed, jumpForce);
             anim.SetBool("isGrounded", false);
-            jumpsRemaining--;
+            jumpsRemaining--; 
         }
 
+
         // Fall animation
-        anim.SetFloat("VerticalVelocity", rb.linearVelocity.y); 
+        anim.SetFloat("VerticalVelocity", rb.linearVelocity.y);
+
+        // Dash logic
+
+        if (sr.flipX) // Check if the sprite is flipped (facing left)
+        {
+            dashDirection = -1;
+        }
+        else
+        {
+            dashDirection = 1;
+        }
+
+        if (lastDashTime + dashCooldown < Time.time && Input.GetMouseButtonDown(1)) // Check if the dash cooldown has passed and if the right mouse button is pressed
+        {
+            lastDashTime = Time.time; // Update the last dash time to the current time
+            isDashing = true;
+            rb.linearVelocity = new Vector2(dashDirection * dashForce, 0);
+            anim.SetTrigger("Dash");
+            Invoke(nameof(EndDash), dashDuration);
+        }
      
+
     }
 }
