@@ -977,9 +977,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   jumpForce: 17
-  dashForce: 43
   dashCooldown: 1
-  dashDuration: 0.55
+  dashDuration: 0.35
+  dashDistance: 20
 --- !u!1001 &1354961434
 PrefabInstance:
   m_ObjectHideFlags: 0

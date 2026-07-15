@@ -3,14 +3,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
    [SerializeField] private float speed;
+
    [SerializeField] private Transform groundCheck; 
    [SerializeField] private float groundCheckRadius;
    [SerializeField] private LayerMask groundLayer; // LayerMask to specify which layers are considered ground
-   [SerializeField] private float jumpForce; // Force applied to the player when jumping
-   [SerializeField] private float dashForce; 
-   [SerializeField] private float dashCooldown = 2.5f;
-   [SerializeField] private float dashDuration = 0.33f;
+   [SerializeField] private float jumpForce; 
 
+   [SerializeField] private float dashCooldown;
+   [SerializeField] private float dashDuration;
+   [SerializeField] private float dashDistance;
+
+   private Vector2 dashTarget; 
    private float lastDashTime;
    private float dashDirection;
    private bool isDashing;
@@ -33,12 +36,23 @@ public class PlayerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
+    //--------------------------------------------------------------------------------
+    // Dash logic
     private void EndDash() // Method to end the dash after the dash duration
     {
         isDashing = false; // Reset the dashing state to false after the dash duration ends
         anim.SetBool("isDashing", false);
     }
-    
+
+    private void FixedUpdate() 
+    {
+        if (isDashing)
+        {
+            float step = (dashDistance / dashDuration) * Time.fixedDeltaTime; // Calculate step size for moving towards the dash target based on dash distance and duration
+            rb.position = Vector2.MoveTowards(rb.position, dashTarget, step); // Move the player towards the dash target position at a constant speed
+        }
+    }
+    //--------------------------------------------------------------------------------
 
     private void Update()
     {
@@ -65,12 +79,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded) // Reset jumps remaining when grounded
         {
-            jumpsRemaining = maxJumps;
+            jumpsRemaining = maxJumps; 
         }
 
         if (jumpsRemaining > 0 && Input.GetKeyDown(KeyCode.W)) // Check if player has jumps remaining and if (W) is pressed
         {
-            rb.linearVelocity = new Vector2(horizontalInput * speed, jumpForce);
+            rb.linearVelocity = new Vector2(horizontalInput * speed, jumpForce); // Apply jump force to the player
             anim.SetBool("isGrounded", false);
             jumpsRemaining--; 
         }
@@ -78,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Fall animation
         anim.SetFloat("VerticalVelocity", rb.linearVelocity.y);
+
 
         // Dash logic
 
@@ -95,9 +110,9 @@ public class PlayerMovement : MonoBehaviour
             lastDashTime = Time.time; // Update the last dash time to current time
             isDashing = true;
             anim.SetBool("isDashing", true);
-            rb.linearVelocity = new Vector2(dashDirection * dashForce, 0);
+            dashTarget = rb.position + new Vector2(dashDirection * dashDistance, 0); 
             anim.SetTrigger("Dash");
-            Invoke(nameof(EndDash), dashDuration);
+            Invoke(nameof(EndDash), dashDuration); // Schedule the EndDash method to be called after dash duration
         }
      
 
