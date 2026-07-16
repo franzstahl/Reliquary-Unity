@@ -2,23 +2,25 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-   [SerializeField] private float speed;
+   [SerializeField] private float speed; // Horizontal movement
+   [SerializeField] private AudioClip dashSound;
 
+   // Jump
    [SerializeField] private Transform groundCheck; 
    [SerializeField] private float groundCheckRadius;
    [SerializeField] private LayerMask groundLayer; // LayerMask to specify which layers are considered ground
    [SerializeField] private float jumpForce; 
-
+    
+   // Dash
    [SerializeField] private float dashCooldown;
    [SerializeField] private float dashDuration;
    [SerializeField] private float dashDistance;
-
-   private Vector2 dashTarget; 
+   private Vector2 dashTarget; // Destination point
    private float lastDashTime;
    private float dashDirection;
    private bool isDashing;
    
-
+   // Double jump
    private int maxJumps = 2;
    private int jumpsRemaining; 
 
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
    private Rigidbody2D rb;
    private Animator anim;
    private SpriteRenderer sr;
+   private AudioSource audioSource;
 
 
     
@@ -34,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     //--------------------------------------------------------------------------------
@@ -75,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Jump logic
         bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Check if the player is grounded using OverlapCircle
-        anim.SetBool("isGrounded", isGrounded); // Set the "isGrounded" parameter in Animator based on whether the player is grounded
+        anim.SetBool("isGrounded", isGrounded);
 
         if (isGrounded) // Reset jumps remaining when grounded
         {
@@ -110,8 +114,9 @@ public class PlayerMovement : MonoBehaviour
             lastDashTime = Time.time; // Update the last dash time to current time
             isDashing = true;
             anim.SetBool("isDashing", true);
-            dashTarget = rb.position + new Vector2(dashDirection * dashDistance, 0); 
+            dashTarget = rb.position + new Vector2(dashDirection * dashDistance, 0);
             anim.SetTrigger("Dash");
+            audioSource.PlayOneShot(dashSound);
             Invoke(nameof(EndDash), dashDuration); // Schedule the EndDash method to be called after dash duration
         }
      
