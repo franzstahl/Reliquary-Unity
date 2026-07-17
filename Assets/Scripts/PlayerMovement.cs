@@ -3,7 +3,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
    [SerializeField] private float speed; // Horizontal movement
+
    [SerializeField] private AudioClip dashSound;
+   [SerializeField] private AudioClip jumpSound;
 
    // Jump
    [SerializeField] private Transform groundCheck; 
@@ -81,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Check if the player is grounded using OverlapCircle
         anim.SetBool("isGrounded", isGrounded);
 
-        if (isGrounded) // Reset jumps remaining when grounded
+        if (isGrounded && rb.linearVelocity.y <= 0.1) // Reset jumps remaining when grounded
         {
             jumpsRemaining = maxJumps; 
         }
@@ -90,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(horizontalInput * speed, jumpForce); // Apply jump force to the player
             anim.SetBool("isGrounded", false);
+            audioSource.PlayOneShot(jumpSound);
             jumpsRemaining--; 
         }
 
