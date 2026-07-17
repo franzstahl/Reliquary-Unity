@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
    
    private void Update()
     {
-        if (lastAttackTime + attackCooldown < Time.time && playerMovement.IsGrounded && Input.GetMouseButtonDown(0))
+        if (lastAttackTime + attackCooldown < Time.time && playerMovement.IsGrounded && Input.GetMouseButtonDown(0)) // Check if attack cooldown has passed, the player is grounded, and tleft mouse button is pressed
         {
             lastAttackTime = Time.time;
             anim.SetTrigger("Attack");
