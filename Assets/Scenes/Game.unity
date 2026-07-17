@@ -719,7 +719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   speed: 8
   dashSound: {fileID: 8300000, guid: 6eb59c1d19dd55046be9ee1d57be34cb, type: 3}
-  jumpSound: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: c74b2158a0626404ebe40c721a48c9ac, type: 3}
   groundCheck: {fileID: 321658758}
   groundCheckRadius: 0.2
   groundLayer:
