@@ -32,8 +32,10 @@ public class PlayerMovement : MonoBehaviour
    private SpriteRenderer sr;
    private AudioSource audioSource;
 
+   public bool IsGrounded { get; private set; } // Camp property to expose to other scripts the grounded state
 
-    
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -80,10 +82,10 @@ public class PlayerMovement : MonoBehaviour
 
 
         // Jump logic
-        bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Check if the player is grounded using OverlapCircle
-        anim.SetBool("isGrounded", isGrounded);
+        IsGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Check if the player is grounded using OverlapCircle
+        anim.SetBool("isGrounded", IsGrounded);
 
-        if (isGrounded && rb.linearVelocity.y <= 0.1) // Reset jumps remaining when grounded
+        if (IsGrounded && rb.linearVelocity.y <= 0.1) // Reset jumps remaining when grounded
         {
             jumpsRemaining = maxJumps; 
         }

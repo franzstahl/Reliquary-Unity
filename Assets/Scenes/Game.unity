@@ -741,6 +741,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a8d05c14be1bc4fb6a6660c9023d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  attackCooldown: 0.2
+  attackSound: {fileID: 8300000, guid: 0ca921d802370b8438438ae3d5cfb79b, type: 3}
 --- !u!82 &1162953532
 AudioSource:
   m_ObjectHideFlags: 0
