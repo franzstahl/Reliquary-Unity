@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform playerTransform;
-    [SerializeField] private float verticalOffset; // Vertical offset to keep the player in view
+    //[SerializeField] private float verticalOffset; // Vertical offset to keep the player in view (4)
 
     [SerializeField] private float maxX; // Maximum X position for the camera
     [SerializeField] private float minX; // Minimum X position for the camera
@@ -27,6 +27,6 @@ public class CameraFollow : MonoBehaviour
 
         float clampedX = Mathf.Clamp(playerTransform.position.x, minXAllowed, maxXAllowed); // Clamp the camera's X position to stay within the defined min and max boundaries
 
-        transform.position = new Vector3(clampedX, playerTransform.position.y + verticalOffset, transform.position.z); // Update the camera's position to follow player with a vertical offset
+        transform.position = new Vector3(clampedX, transform.position.y , transform.position.z); // Update the camera's position to follow player with a vertical offset
     }
 }
