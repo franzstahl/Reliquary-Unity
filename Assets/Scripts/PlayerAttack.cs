@@ -5,6 +5,7 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private AudioClip attackSound;
     [SerializeField] private float attackCooldown;
+    [SerializeField] private bool canAttack = false;
     private float lastAttackTime;
    
     private AudioSource audioSource;
@@ -21,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
    
    private void Update()
     {
-        if (lastAttackTime + attackCooldown < Time.time && playerMovement.IsGrounded && Input.GetMouseButtonDown(0)) // Check if attack cooldown has passed, the player is grounded, and tleft mouse button is pressed
+        if (lastAttackTime + attackCooldown < Time.time && playerMovement.IsGrounded && canAttack && Input.GetMouseButtonDown(0)) // Check if attack cooldown has passed, the player is grounded, and tleft mouse button is pressed
         {
             lastAttackTime = Time.time;
             anim.SetTrigger("Attack");

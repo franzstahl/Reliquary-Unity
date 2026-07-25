@@ -11,12 +11,14 @@ public class PlayerMovement : MonoBehaviour
    [SerializeField] private Transform groundCheck; 
    [SerializeField] private float groundCheckRadius;
    [SerializeField] private LayerMask groundLayer; // LayerMask to specify which layers are considered ground
-   [SerializeField] private float jumpForce; 
+   [SerializeField] private float jumpForce;
+   [SerializeField] private bool canJump = false;
     
    // Dash
    [SerializeField] private float dashCooldown;
    [SerializeField] private float dashDuration;
    [SerializeField] private float dashDistance;
+    [SerializeField] private bool canDash = false;
    private Vector2 dashTarget; // Destination point
    private float lastDashTime;
    private float dashDirection;
@@ -90,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
             jumpsRemaining = maxJumps; 
         }
 
-        if (jumpsRemaining > 0 && Input.GetKeyDown(KeyCode.W)) // Check if player has jumps remaining and if (W) is pressed
+        if (jumpsRemaining > 0 && canJump && Input.GetKeyDown(KeyCode.W)) // Check if player has jumps remaining and if (W) is pressed
         {
             rb.linearVelocity = new Vector2(horizontalInput * speed, jumpForce); // Apply jump force to the player
             anim.SetBool("isGrounded", false);
@@ -114,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
             dashDirection = 1;
         }
 
-        if (lastDashTime + dashCooldown < Time.time && Input.GetMouseButtonDown(1)) // Check if dash cooldown has passed and if the right mouse button is pressed
+        if (lastDashTime + dashCooldown < Time.time && canDash && Input.GetMouseButtonDown(1)) // Check if dash cooldown has passed and if the right mouse button is pressed
         {
             lastDashTime = Time.time; // Update the last dash time to current time
             isDashing = true;
