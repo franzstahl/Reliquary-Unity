@@ -14,16 +14,18 @@ public class PlayerMovement : MonoBehaviour
    [SerializeField] private float jumpForce;
    [SerializeField] private bool canJump = false;
     
+
    // Dash
    [SerializeField] private float dashCooldown;
    [SerializeField] private float dashDuration;
    [SerializeField] private float dashDistance;
-    [SerializeField] private bool canDash = false;
+   [SerializeField] private bool canDash = false;
    private Vector2 dashTarget; // Destination point
    private float lastDashTime;
    private float dashDirection;
    private bool isDashing;
    
+
    // Double jump
    private int maxJumps = 2;
    private int jumpsRemaining; 
