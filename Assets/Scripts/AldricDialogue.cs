@@ -7,33 +7,65 @@ public class AldricInteraction : MonoBehaviour
     [SerializeField] private string[] dialogueLines; // Array to hold the lines of dialogue
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private PlayerMovement playerMovement;
 
+    [SerializeField] private AudioClip voiceSound;
+
+    private AudioSource audioSource;
     private bool isPlayerInRange;
     private bool didDialogueStart; // Flag to check if the dialogue has started
     private int lineIndex; // Index to keep track of the current line of dialogue
     private float typingTime = 0.05f;
+    private bool isTyping; // Flag to check if the text is currently being typed
+    private bool hasTriggered;
 
+    private Coroutine typingCoroutine; // Coroutine reference to manage the typing effect
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = voiceSound;
+        audioSource.loop = true;
+    }
     private void Update()
     {
-        if (isPlayerInRange)
+        if (isPlayerInRange && !hasTriggered)
         {
             if (!didDialogueStart)
             {
                 StartDialogue();
             }
         }
+
+        if (didDialogueStart && Input.GetMouseButtonDown(0))
+        {
+            if (isTyping) // If the text is currently being typed, skip to the end of the line
+            {
+                StopCoroutine(typingCoroutine);
+                isTyping = false;
+                dialogueText.text = dialogueLines[lineIndex]; // Show the full line immediately
+            }
+            else
+            {
+                NextLine();
+            }
+        }
     }
 
-    private void StartDialogue()
+    private void StartDialogue() // Method to start the dialogue
     {
+        playerMovement.SetInputLocked(true);
         didDialogueStart = true;
+        hasTriggered = true;
+        audioSource.Play();
         dialoguePanel.SetActive(true);
         lineIndex = 0;
-        StartCoroutine(ShowLine());
+        typingCoroutine = StartCoroutine(ShowLine());
     }
 
-    private IEnumerator ShowLine()
+    private IEnumerator ShowLine() // Coroutine to show the dialogue line character by character
     {
+        isTyping = true;
         dialogueText.text = string.Empty; // Clear the dialogue text before showing the new line
 
         foreach (char ch in dialogueLines[lineIndex])
@@ -41,33 +73,36 @@ public class AldricInteraction : MonoBehaviour
             dialogueText.text += ch; // Add each character to the dialogue text
             yield return new WaitForSeconds(typingTime); // Wait for a short duration before adding the next character
         }
+
+        isTyping = false; // Finished without skipping
     }
 
-    private void NextLine()
+    private void NextLine() // Method to move to the next line of dialogue
     {
         lineIndex++; // Move to the next line of dialogue
-        if (lineIndex < dialogueLines.Length) 
+        if (lineIndex < dialogueLines.Length)
         {
-            StartCoroutine(ShowLine()); // Show the next line of dialogue
+            typingCoroutine = StartCoroutine(ShowLine()); // Show the next line of dialogue
 
         }
         else
         {
+            audioSource.Stop();
+            playerMovement.SetInputLocked(false);
             didDialogueStart = false; 
             dialoguePanel.SetActive(false);
+            playerMovement.EnableJump();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isPlayerInRange = true;
-        //Time.timeScale = 0f;
-        Debug.Log("Dentro");
+       
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         isPlayerInRange = false;
-        //Time.timeScale = 1f;
-        Debug.Log("Fuera");
+        
     }
 }

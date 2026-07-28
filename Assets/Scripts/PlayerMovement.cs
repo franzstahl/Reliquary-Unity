@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
    private AudioSource audioSource;
 
    public bool IsGrounded { get; private set; } // Camp property to expose to other scripts the grounded state
+   private bool inputLocked;
 
 
 
@@ -46,6 +47,21 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+    }
+
+    public void SetInputLocked(bool locked)
+    {
+        inputLocked = locked; // Set the inputLocked variable to control whether player input is locked or not
+
+        if (locked)
+        {
+            rb.linearVelocity = new Vector2(0, 0);
+            anim.SetFloat("Speed", 0);
+        }
+    }
+    public void EnableJump()
+    {
+        canJump = true;
     }
 
     //--------------------------------------------------------------------------------
@@ -68,9 +84,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (inputLocked) return;
         if (isDashing) return; // If the player is currently dashing, skip the rest of the Update logic
 
         // Run logic
+
         float horizontalInput = Input.GetAxisRaw("Horizontal"); // Get horizontal input from player
         anim.SetFloat("Speed", Mathf.Abs(horizontalInput)); // Set "Speed" parameter in Animator based on absolute value of horizontal input
         rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);  // Set linear velocity Rigidbody based on horizontal input and speed
@@ -86,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         // Jump logic
+
         IsGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Check if the player is grounded using OverlapCircle
         anim.SetBool("isGrounded", IsGrounded);
 
@@ -101,9 +120,11 @@ public class PlayerMovement : MonoBehaviour
             audioSource.PlayOneShot(jumpSound);
             jumpsRemaining--; 
         }
+        
 
 
         // Fall animation
+
         anim.SetFloat("VerticalVelocity", rb.linearVelocity.y);
 
 
