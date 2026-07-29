@@ -43,6 +43,7 @@ public class AldricInteraction : MonoBehaviour
             {
                 StopCoroutine(typingCoroutine);
                 isTyping = false;
+                audioSource.Stop();
                 dialogueText.text = dialogueLines[lineIndex]; // Show the full line immediately
             }
             else
@@ -57,7 +58,6 @@ public class AldricInteraction : MonoBehaviour
         playerMovement.SetInputLocked(true);
         didDialogueStart = true;
         hasTriggered = true;
-        audioSource.Play();
         dialoguePanel.SetActive(true);
         lineIndex = 0;
         typingCoroutine = StartCoroutine(ShowLine());
@@ -67,6 +67,7 @@ public class AldricInteraction : MonoBehaviour
     {
         isTyping = true;
         dialogueText.text = string.Empty; // Clear the dialogue text before showing the new line
+        audioSource.Play();
 
         foreach (char ch in dialogueLines[lineIndex])
         {
@@ -74,6 +75,7 @@ public class AldricInteraction : MonoBehaviour
             yield return new WaitForSeconds(typingTime); // Wait for a short duration before adding the next character
         }
 
+        audioSource.Stop();
         isTyping = false; // Finished without skipping
     }
 
