@@ -517,7 +517,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -5.157282, y: 6.36288}
+  m_Offset: {x: -5.533695, y: 5.2912216}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -527,7 +527,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.16672897, y: 13.007947}
+  m_Size: {x: 1.0400085, y: 15.151264}
   m_EdgeRadius: 0
 --- !u!4 &255053372
 Transform:
@@ -4389,7 +4389,7 @@ MonoBehaviour:
   dashCooldown: 0.5
   dashDuration: 0.35
   dashDistance: 20
-  canDash: 0
+  canDash: 1
 --- !u!114 &1162953531
 MonoBehaviour:
   m_ObjectHideFlags: 0

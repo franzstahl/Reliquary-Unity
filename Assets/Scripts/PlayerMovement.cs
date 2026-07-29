@@ -77,7 +77,8 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing)
         {
             float step = (dashDistance / dashDuration) * Time.fixedDeltaTime; // Calculate step size for moving towards the dash target based on dash distance and duration
-            rb.position = Vector2.MoveTowards(rb.position, dashTarget, step); // Move the player towards the dash target position at a constant speed
+            Vector2 newPosition = Vector2.MoveTowards(rb.position, dashTarget, step); // Move the player towards the dash target position at a constant speed
+            rb.MovePosition(newPosition); // Move the Rigidbody to the new position
         }
     }
     //--------------------------------------------------------------------------------
