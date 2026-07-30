@@ -4340,7 +4340,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &1162953529
 Animator:
@@ -4389,7 +4389,7 @@ MonoBehaviour:
   dashCooldown: 0.5
   dashDuration: 0.35
   dashDistance: 20
-  canDash: 1
+  canDash: 0
 --- !u!114 &1162953531
 MonoBehaviour:
   m_ObjectHideFlags: 0
