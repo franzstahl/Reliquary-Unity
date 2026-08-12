@@ -8,7 +8,7 @@ public class ExitVerticalCamera : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            cameraFollow.SetVerticalFollow(false);
+            cameraFollow.SetVerticalFollow(false); // Disable vertical follow when the player enters the trigger
         }
     }
 

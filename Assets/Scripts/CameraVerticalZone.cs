@@ -8,16 +8,7 @@ public class CameraVerticalZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            cameraFollow.SetVerticalFollow(true);
+            cameraFollow.SetVerticalFollow(true); // Enable vertical follow when the player enters the trigger
         }
     }
-
-  
-   //private void OnTriggerExit2D(Collider2D other)
-   // {
-   //     if (other.CompareTag("Player"))
-   //     {
-   //         cameraFollow.SetVerticalFollow(false);
-   //     }
-   // }
 }

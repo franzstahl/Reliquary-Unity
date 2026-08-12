@@ -9,12 +9,12 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float maxX; // Maximum X position for the camera
     [SerializeField] private float minX; // Minimum X position for the camera
 
-    [SerializeField] private float maxY;
-    [SerializeField] private float minY;
+    [SerializeField] private float maxY; // Maximum Y position for the camera
+    [SerializeField] private float minY; // Minimum Y position for the camera
     [SerializeField] private float verticalFollowSpeed = 5f;
 
     private bool followVertical = false;
-    private float defaultY;
+    private float defaultY; // Store the default Y position of the camera
 
     private Camera cam; 
 
@@ -48,11 +48,11 @@ public class CameraFollow : MonoBehaviour
             float maxYAllowed = maxY - halfHeight;
             float clampedY = Mathf.Clamp(playerTransform.position.y, minYAllowed, maxYAllowed);
 
-            targetY = Mathf.Lerp(transform.position.y, clampedY, verticalFollowSpeed * Time.deltaTime);
+            targetY = Mathf.Lerp(transform.position.y, clampedY, verticalFollowSpeed * Time.deltaTime); // Smoothly interpolate camera's Y position towards clamped Y position of player
         }
         else
         {
-            targetY = defaultY;
+            targetY = defaultY; // If vertical follow is disabled, reset the camera's Y position to its default value (when getting out the trigger)
         }
 
         transform.position = new Vector3(clampedX, targetY , transform.position.z); // Update the camera's position to follow player while keeping Y and Z positions unchanged
