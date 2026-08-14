@@ -4,8 +4,12 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private AudioClip attackSound;
-    [SerializeField] private float attackCooldown;
+    [SerializeField] private float attackCooldown = 1f;
     [SerializeField] private bool canAttack = false;
+
+    [SerializeField] private LayerMask hittableLayer;
+    [SerializeField] private Transform hitPoint;
+    [SerializeField] private float attackRange;
     private float lastAttackTime;
    
     private AudioSource audioSource;
@@ -28,6 +32,23 @@ public class PlayerAttack : MonoBehaviour
             anim.SetTrigger("Attack");
             audioSource.PlayOneShot(attackSound);
 
+            DoAttack();
         }
+    
+    }
+
+    private void DoAttack()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(hitPoint.position, attackRange, hittableLayer);
+
+        foreach (Collider2D hit in hits)
+        {
+            BarrelStack barrel = hit.GetComponent<BarrelStack>();
+            if (barrel != null)
+            {
+                barrel.RegisterHit();
+            }
+        }
+            
     }
 }
