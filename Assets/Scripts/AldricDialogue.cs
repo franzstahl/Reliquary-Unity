@@ -1,10 +1,11 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AldricInteraction : MonoBehaviour
 {
-    [SerializeField] private string[] dialogueLines; // Array to hold the lines of dialogue
+    [SerializeField] private List<string> dialogueLines; // List to hold the lines of dialogue for Aldric
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private PlayerMovement playerMovement;
@@ -82,7 +83,7 @@ public class AldricInteraction : MonoBehaviour
     private void NextLine() // Method to move to the next line of dialogue
     {
         lineIndex++; // Move to the next line of dialogue
-        if (lineIndex < dialogueLines.Length)
+        if (lineIndex < dialogueLines.Count)
         {
             typingCoroutine = StartCoroutine(ShowLine()); // Show the next line of dialogue
 

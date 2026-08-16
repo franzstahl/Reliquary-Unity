@@ -18,7 +18,7 @@ public class CameraFollow : MonoBehaviour
 
     private Camera cam; 
 
-    public void SetVerticalFollow (bool enable)
+    public void SetVerticalFollow (bool enable) // if the player is in a trigger, enable vertical follow, otherwise disable it
     {
         followVertical = enable;
     }

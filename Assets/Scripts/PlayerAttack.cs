@@ -43,10 +43,10 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            BarrelStack barrel = hit.GetComponent<BarrelStack>();
-            if (barrel != null)
+            IHittable hittable = hit.GetComponent<IHittable>();
+            if (hittable != null)
             {
-                barrel.RegisterHit();
+                hittable.RegisterHit();
             }
         }
             
