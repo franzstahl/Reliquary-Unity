@@ -9,8 +9,8 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float maxX; // Maximum X position for the camera
     [SerializeField] private float minX; // Minimum X position for the camera
 
-    [SerializeField] private float maxY; // Maximum Y position for the camera
-    [SerializeField] private float minY; // Minimum Y position for the camera
+    private float currentMaxY; 
+    private float currentMinY; 
     [SerializeField] private float verticalFollowSpeed = 5f;
 
     private bool followVertical = false;
@@ -18,9 +18,11 @@ public class CameraFollow : MonoBehaviour
 
     private Camera cam; 
 
-    public void SetVerticalFollow (bool enable) // if the player is in a trigger, enable vertical follow, otherwise disable it
+    public void SetVerticalFollow (bool enable, float zoneMinY = 0f, float zoneMaxY = 0f) // if the player is in a trigger, enable vertical follow, otherwise disable it
     {
         followVertical = enable;
+        currentMinY = zoneMinY;
+        currentMaxY = zoneMaxY;
     }
     private void Awake()
     {
@@ -44,8 +46,8 @@ public class CameraFollow : MonoBehaviour
         if (followVertical)
         {
             float halfHeight = cam.orthographicSize;
-            float minYAllowed = minY + halfHeight;
-            float maxYAllowed = maxY - halfHeight;
+            float minYAllowed = currentMinY + halfHeight;
+            float maxYAllowed = currentMaxY - halfHeight;
             float clampedY = Mathf.Clamp(playerTransform.position.y, minYAllowed, maxYAllowed);
 
             targetY = Mathf.Lerp(transform.position.y, clampedY, verticalFollowSpeed * Time.deltaTime); // Smoothly interpolate camera's Y position towards clamped Y position of player

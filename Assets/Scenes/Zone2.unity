@@ -4964,8 +4964,8 @@ MonoBehaviour:
   playerTransform: {fileID: 1162953526}
   maxX: 61.9
   minX: -40.8
-  maxY: 32
-  minY: -5
+  currentMaxY: 0
+  currentMinY: 0
   verticalFollowSpeed: 5
 --- !u!1 &575422405
 GameObject:
@@ -5396,6 +5396,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraVerticalZone
   cameraFollow: {fileID: 519420033}
+  maxY: 32
+  minY: -5
 --- !u!1 &765322606
 GameObject:
   m_ObjectHideFlags: 0
