@@ -8,5 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Zone1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Zone2.unity
+    guid: d188d85e4cd96c34993cc8846394b50b
+  - enabled: 1
+    path: Assets/Scenes/Zone3.unity
+    guid: ea7237cb8f4a4f14695b0f1d418e341b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

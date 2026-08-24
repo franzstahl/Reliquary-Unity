@@ -11,11 +11,16 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform hitPoint;
     [SerializeField] private float attackRange;
     private float lastAttackTime;
+    private bool inputLocked = false;
    
     private AudioSource audioSource;
     private Animator anim;
     private PlayerMovement playerMovement; // Reference to the PlayerMovement script to check if the player is grounded
 
+    public void SetInputLocked(bool locked)
+    {
+        inputLocked = locked;
+    }
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -26,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
    
    private void Update()
     {
-        if (lastAttackTime + attackCooldown < Time.time && playerMovement.IsGrounded && canAttack && Input.GetMouseButtonDown(0)) // Check if attack cooldown has passed, the player is grounded, and tleft mouse button is pressed
+        if (lastAttackTime + attackCooldown < Time.time && playerMovement.IsGrounded && canAttack && !inputLocked && Input.GetMouseButtonDown(0)) // Check if attack cooldown has passed, the player is grounded, and tleft mouse button is pressed
         {
             lastAttackTime = Time.time;
             anim.SetTrigger("Attack");
