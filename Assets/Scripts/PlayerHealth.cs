@@ -5,7 +5,11 @@ public class PlayerHealth : MonoBehaviour
     private Animator anim;
     private PlayerMovement playerMovement;
     private PlayerAttack playerAttack;
-    private Rigidbody2D rb; 
+    private Rigidbody2D rb;
+
+    [SerializeField] private AudioClip deathSound;
+
+    private AudioSource audioSource;
 
     private void Start()
     {
@@ -13,20 +17,18 @@ public class PlayerHealth : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerAttack = GetComponent<PlayerAttack>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Die()
     {
-        // Locked input
-        if (playerMovement != null)
-        {
-            playerMovement.SetInputLocked(true);
-        }
+        audioSource.PlayOneShot(deathSound);
 
-        if (playerAttack != null)
-        {
-            playerAttack.enabled = false;
-        }
+        playerMovement.SetInputLocked(true);
+        playerMovement.ForceGroundedAnimState(); 
+        playerAttack.SetInputLocked(true);
+
+        rb.linearVelocity = Vector2.zero; // Stop the player's movement immediately
 
         anim.SetTrigger("isDead");
     }

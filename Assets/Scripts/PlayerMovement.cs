@@ -55,12 +55,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (locked)
         {
-            // Reset animation parameters when input is locked
+            rb.linearVelocity = new Vector2(0, 0);
             anim.SetFloat("Speed", 0);
-            anim.SetFloat("VerticalVelocity", 0);
-            anim.SetBool("isGrounded", true); 
-            anim.SetBool("isDashing", false);
         }
+    }
+
+    public void ForceGroundedAnimState() // Called when the player is dead to force the grounded animation state
+    {
+        // Reset animation parameters when input is locked
+        anim.SetFloat("Speed", 0);
+        anim.SetFloat("VerticalVelocity", 0);
+        anim.SetBool("isGrounded", true);
+        anim.SetBool("isDashing", false);
     }
     public void EnableJump()
     {

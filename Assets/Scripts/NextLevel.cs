@@ -6,6 +6,7 @@ public class NextLevel : MonoBehaviour
     [SerializeField] private string nextSceneName;
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Ok");
         if (other.CompareTag("Player"))
         {
             SceneManager.LoadScene(nextSceneName);
