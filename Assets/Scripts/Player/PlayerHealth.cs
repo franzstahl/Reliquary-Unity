@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip hitSound;
     private Animator anim;
     private PlayerMovement playerMovement;
     private PlayerAttack playerAttack;
     private Rigidbody2D rb;
+    private bool isDead = false;
 
-    [SerializeField] private AudioClip deathSound;
-
+    private int maxHP = 15;
+    private int currentHP;
     private AudioSource audioSource;
 
     private void Start()
@@ -18,10 +21,30 @@ public class PlayerHealth : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        currentHP = maxHP;
     }
 
+    public void TakeDamage(int amount)
+    {
+        if (isDead) return;
+
+        currentHP -= amount;
+        audioSource.PlayOneShot(hitSound);
+
+        if (currentHP <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            anim.SetTrigger("GetHit");
+        }
+    }
     public void Die()
     {
+        if (isDead) return;
+        isDead = true;
+
         audioSource.PlayOneShot(deathSound);
 
         playerMovement.SetInputLocked(true);
@@ -35,6 +58,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void DeathAnimationComplete()
     {
-        // GameManager.Instance.LoseLife();
+        GameManager.Instance.LoseLife();
     }
 }

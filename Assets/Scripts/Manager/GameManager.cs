@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; } // Everyone can access the GameManager through this property but only the GameManager class can set it.
 
     [SerializeField] private CanvasGroup fadeCanvasGroup;
-    private float fadeDuration = 2f;
+    private float fadeDuration = 2.5f;
     private int maxLives = 3;
     private int currentLives;
 
@@ -41,21 +41,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadSceneWithFade(string sceneName)
+    public void LoadSceneWithFade(string sceneName) // Called to load a new scene with a fade effect.
     {
         StartCoroutine(FadeAndLoad(sceneName));
     }
 
-    private IEnumerator FadeAndLoad(string sceneName)
+    private IEnumerator FadeAndLoad(string sceneName) // Handles the fade effect and scene loading.
     {
-        yield return StartCoroutine(Fade(1f));
+        yield return StartCoroutine(Fade(1f)); // Wait for the fade in to complete before loading the new scene.
 
         SceneManager.LoadScene(sceneName);
 
-        yield return StartCoroutine(Fade(0f));
+        yield return StartCoroutine(Fade(0f)); // Wait for the fade out to complete after loading the new scene.
     }
 
-    private IEnumerator Fade(float targetAlpha)
+    private IEnumerator Fade(float targetAlpha) // Handles the fade effect logic by interpolating the alpha value of CanvasGroup over time.
     {
         float startAlpha = fadeCanvasGroup.alpha;
         float elaped = 0f;

@@ -1,40 +1,40 @@
 fileFormatVersion: 2
-guid: 209c6526704aeda47951274828655163
+guid: 49ffe66aafd63a74ea8ba6de8552c50e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4723107735738678597
-    second: Idle_0
+      213: 5986030973748356752
+    second: Explosion_0
   - first:
-      213: -7385789195546760866
-    second: Idle_1
+      213: -5600206312213581617
+    second: Explosion_1
   - first:
-      213: 3234629978573100161
-    second: Idle_2
+      213: 3815954189206336483
+    second: Explosion_2
   - first:
-      213: 6373048116405451881
-    second: Idle_3
+      213: -3690502768834906923
+    second: Explosion_3
   - first:
-      213: 7264182050183361747
-    second: Idle_4
+      213: -49130668184793455
+    second: Explosion_4
   - first:
-      213: -2834552850196481573
-    second: Idle_5
+      213: -2330519403281856691
+    second: Explosion_5
   - first:
-      213: 3278449094680734212
-    second: Idle_6
+      213: -4796932125324312052
+    second: Explosion_6
   - first:
-      213: 3384493420599841878
-    second: Idle_7
+      213: 4348620978117878488
+    second: Explosion_7
   - first:
-      213: -2331352242086191015
-    second: Idle_8
+      213: 7788287979965792003
+    second: Explosion_8
   - first:
-      213: -3914248031228685145
-    second: Idle_9
+      213: -5876230404456235001
+    second: Explosion_9
   - first:
-      213: 7132915409514813599
-    second: Idle_10
+      213: -7061159883300251746
+    second: Explosion_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -143,199 +143,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle-WORM_0
+      name: Explosion_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 90
-        height: 90
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0204bb2ed82f1054e965c5a67d48143d
-      internalID: 1414659132
+      spriteID: 096a1cc8477a21350800000000000000
+      internalID: 5986030973748356752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-WORM_1
+      name: Explosion_1
       rect:
         serializedVersion: 2
-        x: 90
+        x: 46
         y: 0
-        width: 90
-        height: 90
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 33a5f54a015451540bc5e41c7c92220c
-      internalID: 789091880
+      spriteID: fc0fb9bb7021842b0800000000000000
+      internalID: -5600206312213581617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-WORM_2
+      name: Explosion_2
       rect:
         serializedVersion: 2
-        x: 180
+        x: 92
         y: 0
-        width: 90
-        height: 90
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 233335969da74154e8b15d227e81585d
-      internalID: 1812744578
+      spriteID: 3e3bec60e1ef4f430800000000000000
+      internalID: 3815954189206336483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-WORM_3
+      name: Explosion_3
       rect:
         serializedVersion: 2
-        x: 270
+        x: 138
         y: 0
-        width: 90
-        height: 90
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 22c3a62a2b5932b4a984472f70fe8463
-      internalID: -768284851
+      spriteID: 5d4fffce843b8ccc0800000000000000
+      internalID: -3690502768834906923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-WORM_4
+      name: Explosion_4
       rect:
         serializedVersion: 2
-        x: 360
+        x: 184
         y: 0
-        width: 90
-        height: 90
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a1de711a1602a0a46996a92ef82a1160
-      internalID: 1544252290
+      spriteID: 19e8447eae3715ff0800000000000000
+      internalID: -49130668184793455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-WORM_5
+      name: Explosion_5
       rect:
         serializedVersion: 2
-        x: 450
+        x: 230
         y: 0
-        width: 90
-        height: 90
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d4436eef356a39344b7cf8714b0d608e
-      internalID: -1570124486
+      spriteID: d47ca3943f458afd0800000000000000
+      internalID: -2330519403281856691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-WORM_6
+      name: Explosion_6
       rect:
         serializedVersion: 2
-        x: 540
+        x: 276
         y: 0
-        width: 90
-        height: 90
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b7a918e4a85a7014cac44c87badee709
-      internalID: -1788077102
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle-WORM_7
-      rect:
-        serializedVersion: 2
-        x: 630
-        y: 0
-        width: 90
-        height: 90
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 307fe44098b5bfc438ceb4cd6a05c1ff
-      internalID: -2073799177
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle-WORM_8
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 0
-        width: 90
-        height: 90
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd31582408327b842abb44d9ae2f2271
-      internalID: -636621189
+      spriteID: c028262b5afdd6db0800000000000000
+      internalID: -4796932125324312052
       vertices: []
       indices: 
       edges: []
@@ -344,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e31f3674ae593c04fbfdb2684b1478d6
+    spriteID: f814a1b5dd74fcf49a8ef6adaa555d62
     internalID: 0
     vertices: []
     indices: 
@@ -354,17 +310,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":9.0,"y":1.0},"gridSpriteSize":{"x":90.0,"y":90.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":1.0},"gridSpriteSize":{"x":46.0,"y":46.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Idle-WORM_0: 1414659132
-      Idle-WORM_1: 789091880
-      Idle-WORM_2: 1812744578
-      Idle-WORM_3: -768284851
-      Idle-WORM_4: 1544252290
-      Idle-WORM_5: -1570124486
-      Idle-WORM_6: -1788077102
-      Idle-WORM_7: -2073799177
-      Idle-WORM_8: -636621189
+      Explosion_0: 5986030973748356752
+      Explosion_1: -5600206312213581617
+      Explosion_2: 3815954189206336483
+      Explosion_3: -3690502768834906923
+      Explosion_4: -49130668184793455
+      Explosion_5: -2330519403281856691
+      Explosion_6: -4796932125324312052
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
