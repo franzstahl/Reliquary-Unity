@@ -17,12 +17,14 @@ public class WormBoss : Enemy
     [Header("Timings")]
     [SerializeField] private float telegraphDuration = 0.8f; // Normal telegraph duration
     [SerializeField] private float recoveryDuration = 1f;
-    [SerializeField] private float meleeTelegraphDuration = 0.5f; // Instakill telegraph duration
+    [SerializeField] private float meleeTelegraphDuration = 0.6f; // Instakill telegraph duration
+    private float hitFlashDuration = 0.15f;
 
     private Color originalColor;
     private Coroutine attackLoopCoroutine;
     private FireballType pendingType;
     private AudioSource audioSource;
+    
     
     protected override void Start()
     {
@@ -69,7 +71,7 @@ public class WormBoss : Enemy
 
     private IEnumerator InstaKill() // Deadly attack when player is close
     {
-        yield return Telegraph(Color.red, meleeTelegraphDuration);
+        yield return Telegraph(Color.orange, meleeTelegraphDuration);
         FireAt(FireballType.InstaKill);
     }
 
@@ -103,6 +105,7 @@ public class WormBoss : Enemy
         {
             anim.SetTrigger("GetHit");
             audioSource.PlayOneShot(hitSound);
+            StartCoroutine(Telegraph(Color.red, hitFlashDuration));
         }
     }
 
