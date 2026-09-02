@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5a761d24fc175a045b64ea5d9b14af75
+guid: 56eea76feec72b941b9a7862dcb5ca50
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8694212510677907503
-    second: spike - big_0
+      213: 5057691884846697332
+    second: RELIQ_DEF_PARCIAL_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spike - big_0
+      name: RELIQ_DEF_PARCIAL_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 14
-        height: 11
+        x: 11
+        y: 8
+        width: 26
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f28b6bce63c08a870800000000000000
-      internalID: 8694212510677907503
+      spriteID: 47bc9a3f8f7803640800000000000000
+      internalID: 5057691884846697332
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spike - big_0: 8694212510677907503
+      RELIQ_DEF_PARCIAL_0: 5057691884846697332
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

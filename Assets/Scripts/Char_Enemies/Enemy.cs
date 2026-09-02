@@ -9,6 +9,8 @@ public abstract class Enemy : MonoBehaviour, IHittable
     protected bool isDead = false;
     protected EnemyState currentState; // Define the current state of the enemy
 
+    [SerializeField] protected GameObject relicFragmentPrefab;
+
     protected virtual void Start()
     {
         currentHealth = maxHealth;
@@ -29,5 +31,13 @@ public abstract class Enemy : MonoBehaviour, IHittable
     protected virtual void Die()
     {
         isDead = true;
+
+        if (relicFragmentPrefab != null)
+        {
+            Instantiate(relicFragmentPrefab, transform.position, Quaternion.identity);
+        }
     }
 }
+
+   
+

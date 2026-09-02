@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; } // Everyone can access the GameManager through this property but only the GameManager class can set it.
+    public static GameManager Instance { get; private set; } // Everyone can access the GameManager but only the GameManager class can set it.
+
+    public int FragmentsCollected { get; private set; } = 0; // Tracks the number of relic fragments collected by the player.
 
     [SerializeField] private CanvasGroup fadeCanvasGroup;
+    [SerializeField] private int totalFragments = 3;
     private float fadeDuration = 2.5f;
     private int maxLives = 3;
     private int currentLives;
@@ -26,6 +29,10 @@ public class GameManager : MonoBehaviour
         currentLives = maxLives;
     }
 
+    public void CollectFragment()
+    {
+        FragmentsCollected++;
+    }
    
     public void LoseLife()
     {
@@ -66,6 +73,7 @@ public class GameManager : MonoBehaviour
             fadeCanvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, elaped / fadeDuration);
             yield return null;
         }
+
         fadeCanvasGroup.alpha = targetAlpha;
     }
 }

@@ -15,10 +15,10 @@ public class WormBoss : Enemy
     [SerializeField] private AudioClip deathSound;
 
     [Header("Timings")]
-    [SerializeField] private float telegraphDuration = 0.8f; // Normal telegraph duration
-    [SerializeField] private float recoveryDuration = 1f;
-    [SerializeField] private float meleeTelegraphDuration = 0.6f; // Instakill telegraph duration
-    private float hitFlashDuration = 0.15f;
+    [SerializeField] private float telegraphDuration; // Normal telegraph duration
+    [SerializeField] private float recoveryDuration;
+    [SerializeField] private float meleeTelegraphDuration; // Instakill telegraph duration
+    private float hitFlashDuration = 0.2f;
 
     private Color originalColor;
     private Coroutine attackLoopCoroutine;
@@ -36,7 +36,6 @@ public class WormBoss : Enemy
     public void OnPlayerEnterDetection()
     {
         if (isDead) return;
-        Debug.Log("ENTER detection");
         if (attackLoopCoroutine == null)
         {
             attackLoopCoroutine = StartCoroutine(AttackLoop());
@@ -45,7 +44,6 @@ public class WormBoss : Enemy
 
     public void OnPlayerExitDetection()
     {
-        Debug.Log("EXIT detection");
         if (attackLoopCoroutine != null)
         {
             StopCoroutine(attackLoopCoroutine);
@@ -103,10 +101,22 @@ public class WormBoss : Enemy
         base.RegisterHit();
         if (!isDead)
         {
-            anim.SetTrigger("GetHit");
-            audioSource.PlayOneShot(hitSound);
-            StartCoroutine(Telegraph(Color.red, hitFlashDuration));
+            StartCoroutine(HitReaction());
         }
+    }
+
+    private IEnumerator HitReaction()
+    {
+        if (attackLoopCoroutine != null)
+        {
+            StopCoroutine(attackLoopCoroutine);
+        }
+
+        audioSource.PlayOneShot(hitSound);
+        yield return StartCoroutine(Telegraph(Color.red, hitFlashDuration));
+
+        attackLoopCoroutine = StartCoroutine(AttackLoop());
+
     }
 
     protected override void Die()
