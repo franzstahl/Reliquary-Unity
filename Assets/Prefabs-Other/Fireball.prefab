@@ -194,8 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fdb97adfa36c624e99c8c16d42bf926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fireball
-  speed: 15
-  lifeTime: 2
+  speed: 25
+  lifeTime: 1.7
   spriteRenderer: {fileID: 3543810123335310708}
   explosionPrefab: {fileID: 1179089976542491931, guid: 8a9ced2475b09b4469e6a4bb581f88d1, type: 3}
   fireballSound: {fileID: 8300000, guid: f4936e765ef442d4394be8efc925fe0f, type: 3}

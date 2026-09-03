@@ -19,6 +19,7 @@ public class WormBoss : Enemy
     [SerializeField] private float recoveryDuration;
     [SerializeField] private float meleeTelegraphDuration; // Instakill telegraph duration
     private float hitFlashDuration = 0.2f;
+  
 
     private Color originalColor;
     private Coroutine attackLoopCoroutine;
@@ -33,7 +34,7 @@ public class WormBoss : Enemy
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void OnPlayerEnterDetection()
+    public void OnPlayerEnterDetection() // Start attacking when the player enters the detection area
     {
         if (isDead) return;
         if (attackLoopCoroutine == null)
@@ -42,7 +43,7 @@ public class WormBoss : Enemy
         }
     }
 
-    public void OnPlayerExitDetection()
+    public void OnPlayerExitDetection() // Stop attacking when the player leaves the detection area
     {
         if (attackLoopCoroutine != null)
         {
@@ -61,15 +62,20 @@ public class WormBoss : Enemy
         }
     }
 
-    public void TriggerInstaKill()
+    public void TriggerInstaKill() // Triggered when the player is very close to the boss
     {
         if (isDead) return;
+        if (attackLoopCoroutine != null)
+        {
+            StopCoroutine(attackLoopCoroutine);
+            attackLoopCoroutine = null;
+        }
         StartCoroutine(InstaKill());
     }
 
-    private IEnumerator InstaKill() // Deadly attack when player is close
+    private IEnumerator InstaKill() // Deadly attack
     {
-        yield return Telegraph(Color.orange, meleeTelegraphDuration);
+        yield return Telegraph(Color.cyan, meleeTelegraphDuration);
         FireAt(FireballType.InstaKill);
     }
 
@@ -80,13 +86,13 @@ public class WormBoss : Enemy
         spriteRenderer.color = originalColor;
     }
 
-    private void FireAt(FireballType type) // Fire a fireball towards the player
+    private void FireAt(FireballType type) // Set which type of fireball to spawn and trigger the attack animation
     {
         pendingType = type;
         anim.SetTrigger("Attack");
     }
 
-    public void SpawnFireball()
+    public void SpawnFireball() // Spawn a fireball at a random fire point and launch it towards the player
     {
         Transform chosenPoint = firePoints[Random.Range(0, firePoints.Count)];
         Fireball fireball = FireballPool.Instance.GetFireball();
@@ -105,7 +111,7 @@ public class WormBoss : Enemy
         }
     }
 
-    private IEnumerator HitReaction()
+    private IEnumerator HitReaction() // Handles the visual and audio feedback when the boss is hit
     {
         if (attackLoopCoroutine != null)
         {

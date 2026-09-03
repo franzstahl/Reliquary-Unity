@@ -155478,7 +155478,7 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: b68a4d47b878ca54599320a518db862f, type: 3}
   telegraphDuration: 0.75
   recoveryDuration: 0.4
-  meleeTelegraphDuration: 0.6
+  meleeTelegraphDuration: 0.5
 --- !u!1001 &1803780395
 PrefabInstance:
   m_ObjectHideFlags: 0
