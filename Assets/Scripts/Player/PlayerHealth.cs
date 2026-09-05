@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
             anim.SetTrigger("GetHit");
         }
     }
+
     public void Die()
     {
         if (isDead) return;

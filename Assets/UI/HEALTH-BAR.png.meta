@@ -1,0 +1,548 @@
+fileFormatVersion: 2
+guid: 41156acb0f88b2346a24850c933889ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1853191890648275704
+    second: HEALTH-DEF_0
+  - first:
+      213: 2878160701984429036
+    second: HEALTH-DEF_1
+  - first:
+      213: 6112340891430534132
+    second: HEALTH-DEF_2
+  - first:
+      213: 24794616561506217
+    second: HEALTH-DEF_3
+  - first:
+      213: 7944337026703923690
+    second: HEALTH-DEF_4
+  - first:
+      213: -8820130903213959385
+    second: HEALTH-DEF_5
+  - first:
+      213: 4338465547431130109
+    second: HEALTH-DEF_6
+  - first:
+      213: 8341446317074023745
+    second: HEALTH-DEF_7
+  - first:
+      213: -4535183398399640714
+    second: HEALTH-DEF_8
+  - first:
+      213: 7528394986414767015
+    second: HEALTH-DEF_9
+  - first:
+      213: 1555505736968837853
+    second: HEALTH-DEF_10
+  - first:
+      213: -5698782929791042396
+    second: HEALTH-DEF_11
+  - first:
+      213: 8426632209751316432
+    second: HEALTH-DEF_12
+  - first:
+      213: -2762519336454246058
+    second: HEALTH-DEF_13
+  - first:
+      213: -8048562571422794210
+    second: HEALTH-DEF_14
+  - first:
+      213: 6787249994014498488
+    second: HEALTH-DEF_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HEALTH-DEF_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 141
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fa99b6b43cd7b910800000000000000
+      internalID: 1853191890648275704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 141
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce35548c8e741f720800000000000000
+      internalID: 2878160701984429036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 141
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fbbfcbf7a563d450800000000000000
+      internalID: 6112340891430534132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 141
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a79d788296185000800000000000000
+      internalID: 24794616561506217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_4
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 109
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae99ba45f64ff3e60800000000000000
+      internalID: 7944337026703923690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_5
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 109
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7279c71bca9989580800000000000000
+      internalID: -8820130903213959385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_6
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 109
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df337e0ed63553c30800000000000000
+      internalID: 4338465547431130109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_7
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 109
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14500320b35c2c370800000000000000
+      internalID: 8341446317074023745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 77
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67bf3234abacf01c0800000000000000
+      internalID: -4535183398399640714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_9
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 77
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ab751e5a5b3a7860800000000000000
+      internalID: 7528394986414767015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_10
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 77
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dda1c12f934469510800000000000000
+      internalID: 1555505736968837853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_11
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 77
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4acbeb96e1bd9e0b0800000000000000
+      internalID: -5698782929791042396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_12
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 45
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d7971b395961f470800000000000000
+      internalID: 8426632209751316432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_13
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 45
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6513f79cc4f89a9d0800000000000000
+      internalID: -2762519336454246058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_14
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 45
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ef6d10cf2cd4090800000000000000
+      internalID: -8048562571422794210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH-DEF_15
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 45
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be910fb8e7213e50800000000000000
+      internalID: 6787249994014498488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ad175a34925c2eb48bfea3d2c77e54f9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      HEALTH-DEF_0: 1853191890648275704
+      HEALTH-DEF_1: 2878160701984429036
+      HEALTH-DEF_10: 1555505736968837853
+      HEALTH-DEF_11: -5698782929791042396
+      HEALTH-DEF_12: 8426632209751316432
+      HEALTH-DEF_13: -2762519336454246058
+      HEALTH-DEF_14: -8048562571422794210
+      HEALTH-DEF_15: 6787249994014498488
+      HEALTH-DEF_2: 6112340891430534132
+      HEALTH-DEF_3: 24794616561506217
+      HEALTH-DEF_4: 7944337026703923690
+      HEALTH-DEF_5: -8820130903213959385
+      HEALTH-DEF_6: 4338465547431130109
+      HEALTH-DEF_7: 8341446317074023745
+      HEALTH-DEF_8: -4535183398399640714
+      HEALTH-DEF_9: 7528394986414767015
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
