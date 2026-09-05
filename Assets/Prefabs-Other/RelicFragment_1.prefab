@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 730814574382322933}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 134.06, y: 15.89, z: 0}
+  m_LocalPosition: {x: 134.043, y: 16.122, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b716b587630db0f41a4855e99b70e281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RelicFragment
-  bobAmplitude: 0.2
-  bobSpeed: 2
+  bobAmplitude: 0.4
+  bobSpeed: 3
   pickupSound: {fileID: 8300000, guid: 20381203d17987a4e9300b14471a9524, type: 3}
 --- !u!61 &6725112566924148147
 BoxCollider2D:

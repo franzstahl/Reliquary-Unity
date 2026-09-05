@@ -220,7 +220,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1001 &161156523
 PrefabInstance:
@@ -672,7 +672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -17.2, y: -58.6}
+  m_AnchoredPosition: {x: -9.5, y: -58}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &250671730
@@ -4252,6 +4252,7 @@ GameObject:
   - component: {fileID: 890979774}
   - component: {fileID: 890979776}
   - component: {fileID: 890979775}
+  - component: {fileID: 890979777}
   m_Layer: 0
   m_Name: Healthbar
   m_TagString: Untagged
@@ -4275,7 +4276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 31.400024, y: -23.899994}
+  m_AnchoredPosition: {x: 31.399902, y: -23.900024}
   m_SizeDelta: {x: 150, y: 43.75}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &890979775
@@ -4316,6 +4317,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890979773}
   m_CullTransparentMesh: 1
+--- !u!114 &890979777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890979773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272a691e2742a9c4f8e9650fe311d6f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthbarUI
+  healthImage: {fileID: 890979775}
+  healthSprites:
+  - {fileID: 1853191890648275704, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: 2878160701984429036, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: 6112340891430534132, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: 24794616561506217, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: 7944337026703923690, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: -8820130903213959385, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: 4338465547431130109, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: 8341446317074023745, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: -4535183398399640714, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: 7528394986414767015, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: 1555505736968837853, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: -5698782929791042396, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: 8426632209751316432, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: -2762519336454246058, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: -8048562571422794210, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
+  - {fileID: 6787249994014498488, guid: 41156acb0f88b2346a24850c933889ce, type: 3}
 --- !u!1 &932455482
 GameObject:
   m_ObjectHideFlags: 0
@@ -5494,6 +5525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   fadeCanvasGroup: {fileID: 1796148360}
   totalFragments: 3
+  healthBarUI: {fileID: 890979777}
 --- !u!4 &1230612862
 Transform:
   m_ObjectHideFlags: 0
@@ -25645,7 +25677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -134.3, y: -31.2}
+  m_AnchoredPosition: {x: -118.6001, y: -28.900024}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1466520917

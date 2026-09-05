@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class RelicFragment : MonoBehaviour
 {
-    [Header("Movimiento")]
-    [SerializeField] private float bobAmplitude = 0.2f;
-    [SerializeField] private float bobSpeed = 2f;
+    [Header("Movement")]
+    [SerializeField] private float bobAmplitude;
+    [SerializeField] private float bobSpeed;
 
     [Header("Audio")]
     [SerializeField] private AudioClip pickupSound;

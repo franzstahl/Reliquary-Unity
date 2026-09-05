@@ -10,9 +10,10 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody2D rb;
     private bool isDead = false;
 
-    private int maxHP = 15;
-    private int currentHP;
+    private int maxHealth = 15;
+    private int currentHealth;
     private AudioSource audioSource;
+    
 
     private void Start()
     {
@@ -21,17 +22,19 @@ public class PlayerHealth : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
-        currentHP = maxHP;
+        currentHealth = maxHealth;
+        GameManager.Instance.healthBarUI.SetHealth(currentHealth, maxHealth);
     }
 
     public void TakeDamage(int amount)
     {
         if (isDead) return;
 
-        currentHP -= amount;
+        currentHealth -= amount;
         audioSource.PlayOneShot(hitSound);
+        GameManager.Instance.healthBarUI.SetHealth(currentHealth, maxHealth);
 
-        if (currentHP <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
