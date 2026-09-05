@@ -22,8 +22,8 @@ public class PlayerHealth : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
-        currentHealth = maxHealth;
-        GameManager.Instance.healthBarUI.SetHealth(currentHealth, maxHealth);
+        currentHealth = maxHealth; // Set current health to max health at the start
+        GameManager.Instance.healthBarUI.SetHealth(currentHealth, maxHealth); // Initialize health bar UI
     }
 
     public void TakeDamage(int amount)
@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth -= amount;
         audioSource.PlayOneShot(hitSound);
-        GameManager.Instance.healthBarUI.SetHealth(currentHealth, maxHealth);
+        GameManager.Instance.healthBarUI.SetHealth(currentHealth, maxHealth); // Update health bar UI each time damage is taken
 
         if (currentHealth <= 0)
         {

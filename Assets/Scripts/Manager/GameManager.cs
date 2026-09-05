@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     private float fadeDuration = 2.5f;
     private int maxLives = 3;
     private int currentLives;
-    public HealthbarUI healthBarUI;
+    public  HealthbarUI healthBarUI;
+    public LivesCounterUI livesCounterUI;
     private void Awake()
     {
         // Prevent multiple instances of GameManager
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            livesCounterUI.SetLives(currentLives); // Update the lives counter UI to reflect the current number of lives.
             LoadSceneWithFade(SceneManager.GetActiveScene().name);
         }
     }

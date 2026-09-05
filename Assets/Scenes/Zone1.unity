@@ -864,8 +864,9 @@ GameObject:
   - component: {fileID: 256157529}
   - component: {fileID: 256157531}
   - component: {fileID: 256157530}
+  - component: {fileID: 256157532}
   m_Layer: 0
-  m_Name: Lives1 (1)
+  m_Name: Lives_Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -990,6 +991,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256157528}
   m_CullTransparentMesh: 1
+--- !u!114 &256157532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256157528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c1637d0215bf1478c4dad96f7aa533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LivesCounterUI
+  livesNumber: {fileID: 256157530}
 --- !u!1 &301517147
 GameObject:
   m_ObjectHideFlags: 0
@@ -4359,7 +4373,7 @@ GameObject:
   - component: {fileID: 932455485}
   - component: {fileID: 932455484}
   m_Layer: 0
-  m_Name: Lives1
+  m_Name: LivesX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5526,6 +5540,7 @@ MonoBehaviour:
   fadeCanvasGroup: {fileID: 1796148360}
   totalFragments: 3
   healthBarUI: {fileID: 890979777}
+  livesCounterUI: {fileID: 256157532}
 --- !u!4 &1230612862
 Transform:
   m_ObjectHideFlags: 0
