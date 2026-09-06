@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
     private float fadeDuration = 2.5f;
     private int maxLives = 3;
     private int currentLives;
+
     public  HealthbarUI healthBarUI;
     public LivesCounterUI livesCounterUI;
+    public FragmentsCounterUI fragmentsUI;
     private void Awake()
     {
         // Prevent multiple instances of GameManager
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
     public void CollectFragment()
     {
         FragmentsCollected++;
+        fragmentsUI.SetFragments(FragmentsCollected, totalFragments); // Update the fragments counter UI to reflect the current number of collected fragments.
     }
    
     public void LoseLife()

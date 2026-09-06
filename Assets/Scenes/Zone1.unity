@@ -649,6 +649,7 @@ GameObject:
   - component: {fileID: 250671729}
   - component: {fileID: 250671731}
   - component: {fileID: 250671730}
+  - component: {fileID: 250671732}
   m_Layer: 0
   m_Name: Relic_Counter
   m_TagString: Untagged
@@ -775,6 +776,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250671728}
   m_CullTransparentMesh: 1
+--- !u!114 &250671732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250671728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b7157f0fd59a147a546683d7f5bc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FragmentsCounterUI
+  fragmentsUI: {fileID: 250671730}
 --- !u!1 &255053370
 GameObject:
   m_ObjectHideFlags: 0
@@ -4788,7 +4802,7 @@ MonoBehaviour:
     across the ruins now. Something''s taken each one. '
   - 'King Aldric: I don''t know what''s in there. Enemies, traps, things I can''t
     even name. No one who''s gone in has come back to tell me.'
-  - 'King Aldric: Bring me every piece, and you''ll be paid more gold than you''ve
+  - 'King Aldric: Bring me the three pieces, and you''ll be paid more gold than you''ve
     ever seen. That''s the deal.'
   - 'King Aldric: The gate''s open. Whatever''s waiting past it is yours now.'
   dialogueText: {fileID: 243442996}
@@ -5541,6 +5555,7 @@ MonoBehaviour:
   totalFragments: 3
   healthBarUI: {fileID: 890979777}
   livesCounterUI: {fileID: 256157532}
+  fragmentsUI: {fileID: 250671732}
 --- !u!4 &1230612862
 Transform:
   m_ObjectHideFlags: 0
@@ -25794,7 +25809,7 @@ GameObject:
   - component: {fileID: 1533302408}
   - component: {fileID: 1533302407}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
