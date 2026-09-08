@@ -10,6 +10,7 @@ public abstract class Enemy : MonoBehaviour, IHittable
     protected EnemyState currentState; // Define the current state of the enemy
 
     [SerializeField] protected GameObject relicFragmentPrefab;
+    
 
     protected virtual void Start()
     {
@@ -21,6 +22,7 @@ public abstract class Enemy : MonoBehaviour, IHittable
         if (isDead) return;
 
         currentHealth--;
+        
 
         if (currentHealth <= 0)
         {

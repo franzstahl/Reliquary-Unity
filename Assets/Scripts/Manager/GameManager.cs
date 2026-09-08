@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private float fadeDuration = 2.5f;
     private int maxLives = 3;
     private int currentLives;
+ 
 
     public  HealthbarUI healthBarUI;
     public LivesCounterUI livesCounterUI;

@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody2D rb;
     private bool isDead = false;
 
-    private int maxHealth = 15;
+    private const int maxHealth = 15;
     private int currentHealth;
     private AudioSource audioSource;
     

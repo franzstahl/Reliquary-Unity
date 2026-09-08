@@ -5060,7 +5060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a867f927db547b749a272328b8ac95cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NextLevel
-  nextSceneName: Zone3
+  nextSceneName: Zone4
 --- !u!4 &1057447228
 Transform:
   m_ObjectHideFlags: 0
