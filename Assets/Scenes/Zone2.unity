@@ -4805,6 +4805,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel
       objectReference: {fileID: 0}
+    - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6157999523996015906, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.02
@@ -5226,6 +5230,10 @@ PrefabInstance:
     - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_Name
       value: Barrel (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6157999523996015906, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6764,6 +6772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   deathSound: {fileID: 8300000, guid: d55d0acec81bad44b8f19cda685928f9, type: 3}
+  hitSound: {fileID: 0}
 --- !u!1001 &1163960037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6909,6 +6918,10 @@ PrefabInstance:
     - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_Name
       value: Barrel (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6157999523996015906, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7253,6 +7266,10 @@ PrefabInstance:
     - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_Name
       value: Barrel (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6157999523996015906, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62059,6 +62076,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6157999523996015906, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.55
@@ -62449,6 +62470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6157999523996015906, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.554
@@ -62510,6 +62535,10 @@ PrefabInstance:
     - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_Name
       value: Barrel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6157999523996015906, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62633,6 +62662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6157999523996015906, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.554
@@ -62689,6 +62722,10 @@ PrefabInstance:
     - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_Name
       value: Barrel (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 465634926213267057, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6157999523996015906, guid: 60fda8d8f3a51714389f7038e4561cb7, type: 3}
       propertyPath: m_LocalPosition.x
