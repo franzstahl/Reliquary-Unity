@@ -22,6 +22,7 @@ public class KnightBoss : Enemy, IHittable
     private Animator anim;
     private AudioSource audioSource;
     private Transform playerTransform;
+    private SpriteRenderer spriteRenderer;
     private float lastAttackTime;
     private Phase currentPhase;
 
@@ -35,6 +36,7 @@ public class KnightBoss : Enemy, IHittable
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     
@@ -64,12 +66,15 @@ public class KnightBoss : Enemy, IHittable
     {
         if (!hasFightStarted ||isDead || currentPhase != Phase.Attacking) return;
 
-        float distanceToPlayer = Vector2.Distance(rb.position, playerTransform.position); // Calculate the distance to the player
+        float distanceToPlayer = Mathf.Abs(playerTransform.position.x - rb.position.x); // Calculate the horizontal distance to the player
 
         if (distanceToPlayer > attackRange)
         {
-            Vector2 moveDirection = ((Vector2)playerTransform.position - rb.position).normalized; // Calculate the direction to move towards the player
-            rb.MovePosition(rb.position + moveDirection * speed * Time.fixedDeltaTime); // Move the boss towards the player
+            float directionX = Mathf.Sign(playerTransform.position.x - rb.position.x);
+            Vector2 horizontalMove = new Vector2(directionX, 0); // Calculate the direction to move towards the player
+            rb.MovePosition(rb.position + horizontalMove * speed * Time.fixedDeltaTime); // Move the boss towards the player
+
+            spriteRenderer.flipX = directionX < 0; // Flip the sprite based on the direction of movement
 
             anim.SetBool("isMoving", true);
         }
@@ -109,6 +114,14 @@ public class KnightBoss : Enemy, IHittable
         }
     }
 
+    public override void RegisterHit()
+    {
+        if (isDead) return;
+
+        audioSource.PlayOneShot(hurtSound);
+        base.RegisterHit();
+    }
+
     protected override void Die()
     {
         base.Die();
@@ -116,6 +129,8 @@ public class KnightBoss : Enemy, IHittable
         rb.linearVelocity = Vector2.zero;
         anim.SetTrigger("Death");
         audioSource.PlayOneShot(deathSound);
+
+        GetComponent<Collider2D>().enabled = false;
     }
 }
 

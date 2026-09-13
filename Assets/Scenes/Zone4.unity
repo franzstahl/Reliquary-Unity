@@ -7673,8 +7673,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.010475165, y: 0.18382576}
-  m_Size: {x: 1.1493988, y: 2.8528547}
+  m_Offset: {x: -0.022928573, y: 0.04138161}
+  m_Size: {x: 0.9638348, y: 2.5679665}
   m_Direction: 0
 --- !u!50 &680785169
 Rigidbody2D:
@@ -7750,7 +7750,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -855105089, guid: 7e4031006dc80cf4ab5f361f1d763d07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7775,18 +7775,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KnightBoss
   relicFragmentPrefab: {fileID: 730814574382322933, guid: 328137f7903349b4e84881cd214508cc, type: 3}
-  speed: 4
-  attackRange: 2
-  attackCooldown: 0.5
-  damageRange: 1.5
+  speed: 8
+  attackRange: 1
+  attackCooldown: 0.8
+  damageRange: 0.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 1
   attackSound: {fileID: 8300000, guid: 1bea1002385c01d4783005dd34220ea5, type: 3}
-  hurtSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: d35befc634a347742a710fcb3af9a311, type: 3}
   deathSound: {fileID: 8300000, guid: 1e6d0725f4933d94c93398a36e87ae3c, type: 3}
   attackPhaseDuration: 12
-  vulnerablePhaseDuration: 5
+  vulnerablePhaseDuration: 6
 --- !u!82 &680785172
 AudioSource:
   m_ObjectHideFlags: 0
