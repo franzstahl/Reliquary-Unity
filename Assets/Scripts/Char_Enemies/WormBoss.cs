@@ -8,7 +8,6 @@ public class WormBoss : Enemy
     [Header("References")]
     [SerializeField] private Transform player;
     [SerializeField] private List<Transform> firePoints;
-    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator anim;
     [SerializeField] private Collider2D bodyCollider;
     [SerializeField] private AudioClip hitSound;
@@ -21,7 +20,6 @@ public class WormBoss : Enemy
     private float hitFlashDuration = 0.2f;
   
 
-    private Color originalColor;
     private Coroutine attackLoopCoroutine;
     private FireballType pendingType;
     private AudioSource audioSource;
@@ -77,13 +75,6 @@ public class WormBoss : Enemy
     {
         yield return Telegraph(Color.cyan, meleeTelegraphDuration);
         FireAt(FireballType.InstaKill);
-    }
-
-    private IEnumerator Telegraph(Color color, float duration) // Change color to indicate attack telegraph
-    {
-        spriteRenderer.color = color;
-        yield return new WaitForSeconds(duration);
-        spriteRenderer.color = originalColor;
     }
 
     private void FireAt(FireballType type) // Set which type of fireball to spawn and trigger the attack animation

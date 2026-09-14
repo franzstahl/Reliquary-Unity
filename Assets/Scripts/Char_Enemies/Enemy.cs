@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, IHittable
@@ -8,9 +9,18 @@ public abstract class Enemy : MonoBehaviour, IHittable
     protected int currentHealth;
     protected bool isDead = false;
     protected EnemyState currentState; // Define the current state of the enemy
+    protected SpriteRenderer spriteRenderer;
+    protected Color originalColor;
+    protected Color currentBaseTint;
 
     [SerializeField] protected GameObject relicFragmentPrefab;
     
+    protected virtual void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
+        currentBaseTint = originalColor; 
+    }
 
     protected virtual void Start()
     {
@@ -30,6 +40,18 @@ public abstract class Enemy : MonoBehaviour, IHittable
         }
     }
    
+    protected IEnumerator Telegraph(Color color, float duration)
+    {
+        spriteRenderer.color = color;
+        yield return new WaitForSeconds(duration);
+        spriteRenderer.color = currentBaseTint;
+    }
+
+    protected void SetBaseTint(Color color)
+    {
+        currentBaseTint = color;
+        spriteRenderer.color = color;
+    }
     protected virtual void Die()
     {
         isDead = true;

@@ -4,33 +4,39 @@ using UnityEngine;
 
 public class KnightBoss : Enemy, IHittable
 {
-    private enum Phase {  Attacking, Vulnerable}
+    private enum Phase {  Attacking, Vulnerable }
 
     [SerializeField] private float speed;
     [SerializeField] private float attackRange;
+    [SerializeField] private float resumeChase;
     [SerializeField] private float attackCooldown;
     [SerializeField] private float damageRange;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private AudioClip attackSound;
     [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip vulnerableSound;
 
     [SerializeField] private int attackPhaseDuration;
     [SerializeField] private int vulnerablePhaseDuration;
+
+    [SerializeField] private GameObject exitLimit;
 
     private Rigidbody2D rb;
     private Animator anim;
     private AudioSource audioSource;
     private Transform playerTransform;
-    private SpriteRenderer spriteRenderer;
     private float lastAttackTime;
     private Phase currentPhase;
 
     private bool hasFightStarted = false;
+    private bool isInAttackMode = false;
+    private float hitFlashDuration = 0.2f;
 
     protected override void Start()
     {
         base.Start();
+        maxHealth = 25;
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -50,11 +56,15 @@ public class KnightBoss : Enemy, IHittable
             currentPhase = Phase.Vulnerable;
             rb.linearVelocity = Vector2.zero; // Stop movement during vulnerable phase
             anim.SetBool("isMoving", false); // Force Idle Animation
+            audioSource.PlayOneShot(vulnerableSound); // Play sound to indicate the boss is vulnerable
+            SetBaseTint(Color.yellow); // Change the boss's color to indicate vulnerability
             yield return new WaitForSeconds(vulnerablePhaseDuration);
+
+            SetBaseTint(originalColor); // Reset the boss's color back to normal after the vulnerable phase
         }
     }
 
-    public void StartFight()
+    public void StartFight() // Initiates the fight with the boss, starting the phase loop
     {
         if (hasFightStarted) return;
 
@@ -68,7 +78,16 @@ public class KnightBoss : Enemy, IHittable
 
         float distanceToPlayer = Mathf.Abs(playerTransform.position.x - rb.position.x); // Calculate the horizontal distance to the player
 
-        if (distanceToPlayer > attackRange)
+        if (!isInAttackMode && distanceToPlayer <= attackRange) // Enter attack mode if the player is within the attack range
+        {
+            isInAttackMode = true;
+        }
+        else if (isInAttackMode && distanceToPlayer > attackRange + resumeChase) // Exit attack mode if the player is out of the attack range plus a buffer distance
+        {
+            isInAttackMode = false;
+        }
+
+        if (!isInAttackMode) // Chase the player if not in attack mode and within the attack range
         {
             float directionX = Mathf.Sign(playerTransform.position.x - rb.position.x);
             Vector2 horizontalMove = new Vector2(directionX, 0); // Calculate the direction to move towards the player
@@ -78,7 +97,7 @@ public class KnightBoss : Enemy, IHittable
 
             anim.SetBool("isMoving", true);
         }
-        else
+        else // If in attack mode, stop moving and try to attack the player
         {
             rb.linearVelocity = Vector2.zero;
             anim.SetBool("isMoving", false);
@@ -114,12 +133,20 @@ public class KnightBoss : Enemy, IHittable
         }
     }
 
-    public override void RegisterHit()
+    public override void RegisterHit() // Handles getting hit by the player and triggers hit reaction
     {
-        if (isDead) return;
-
-        audioSource.PlayOneShot(hurtSound);
         base.RegisterHit();
+
+        if (!isDead)
+        {
+            StartCoroutine(HitReaction());
+        }
+    }
+
+    private IEnumerator HitReaction() // Handles the visual and audio feedback when the boss is hit
+    {
+        audioSource.PlayOneShot(hurtSound);
+        yield return StartCoroutine(Telegraph(Color.red, hitFlashDuration));
     }
 
     protected override void Die()
@@ -131,6 +158,11 @@ public class KnightBoss : Enemy, IHittable
         audioSource.PlayOneShot(deathSound);
 
         GetComponent<Collider2D>().enabled = false;
+
+        if (exitLimit != null)
+        {
+            exitLimit.SetActive(false); // Disable the exit limit to allow the player to leave the area after defeating the boss
+        }
     }
 }
 

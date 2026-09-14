@@ -30,9 +30,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead) return;
 
-        currentHealth -= amount;
+        currentHealth = Mathf.Max(currentHealth - amount, 0); // Ensure health doesn't go below 0 
         audioSource.PlayOneShot(hitSound);
         GameManager.Instance.healthBarUI.SetHealth(currentHealth, maxHealth); // Update health bar UI each time damage is taken
+        CameraFollow.Instance.TriggerShake(); // Trigger camera shake effect when taking damage
 
         if (currentHealth <= 0)
         {

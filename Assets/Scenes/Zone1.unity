@@ -3968,6 +3968,8 @@ MonoBehaviour:
   maxX: 61.9
   minX: -51.8
   verticalFollowSpeed: 5
+  shakeDuration: 0.25
+  shakeIntensity: 0.3
 --- !u!1 &575422405
 GameObject:
   m_ObjectHideFlags: 0
