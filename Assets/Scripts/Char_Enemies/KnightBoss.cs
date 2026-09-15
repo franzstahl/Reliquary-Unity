@@ -36,7 +36,7 @@ public class KnightBoss : Enemy, IHittable
     protected override void Start()
     {
         base.Start();
-        maxHealth = 30;
+        maxHealth = 35;
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
