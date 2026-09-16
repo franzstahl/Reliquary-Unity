@@ -3,7 +3,7 @@ using UnityEngine;
 public enum FireballType { Normal, InstaKill } 
 public class Fireball : MonoBehaviour, IHittable
 {
-    [Header("Movimiento")]
+    [Header("Movement")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float lifeTime = 4f;
 

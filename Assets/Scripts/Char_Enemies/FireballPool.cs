@@ -24,7 +24,7 @@ public class FireballPool : MonoBehaviour
     }
 
     
-    private Fireball CreateNewFireball()
+    private Fireball CreateNewFireball() 
     {
         Fireball fireball = Instantiate(fireballPrefab, transform);
         fireball.gameObject.SetActive(false);
@@ -32,7 +32,7 @@ public class FireballPool : MonoBehaviour
         return fireball;
     }
 
-    public Fireball GetFireball()
+    public Fireball GetFireball() 
     {
         foreach (Fireball fireball in pool)
         {
