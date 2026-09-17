@@ -7,7 +7,6 @@ public class LivesCounterUI : MonoBehaviour
     public void SetLives(int amount)
     {
         livesNumber.text = amount.ToString();
-        livesNumber.fontSize = 75f;
     }
     
 }

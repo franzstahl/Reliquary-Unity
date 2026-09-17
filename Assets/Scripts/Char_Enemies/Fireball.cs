@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum FireballType { Normal, InstaKill } 
+public enum FireballType { Normal, InstaKill, WizardBolt } 
 public class Fireball : MonoBehaviour, IHittable
 {
     [Header("Movement")]
@@ -50,7 +50,7 @@ public class Fireball : MonoBehaviour, IHittable
 
     public void RegisterHit()
     {
-        if (type == FireballType.InstaKill) return;
+        if (type == FireballType.InstaKill || type == FireballType.WizardBolt) return;
 
         direction = -direction;
         isReflected = true;
@@ -80,6 +80,15 @@ public class Fireball : MonoBehaviour, IHittable
             }
 
             ReturnToPool();
+        }
+        else // Hits the barrel
+        {
+            BarrelStack barrel = other.GetComponent<BarrelStack>();
+            if (barrel != null)
+            {
+                barrel.RegisterHit();
+                ReturnToPool();
+            }
         }
     }
     private void ReturnToPool()

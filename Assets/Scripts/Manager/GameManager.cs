@@ -54,6 +54,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
+    public void ResetGame()
+    {
+        currentLives = maxLives;
+        FragmentsCollected = 0;
+
+        if (livesCounterUI != null) livesCounterUI.SetLives(currentLives);
+        if (fragmentsUI != null) fragmentsUI.SetFragments(FragmentsCollected, totalFragments);
+    }
+
     public void LoadSceneWithFade(string sceneName) // Called to load a new scene with a fade effect.
     {
         StartCoroutine(FadeAndLoad(sceneName));
@@ -81,5 +91,6 @@ public class GameManager : MonoBehaviour
         }
 
         fadeCanvasGroup.alpha = targetAlpha;
+        fadeCanvasGroup.blocksRaycasts = targetAlpha > 0.01f; // Only keep blocking if we ended up fully opaque
     }
 }

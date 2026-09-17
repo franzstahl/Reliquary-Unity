@@ -8,6 +8,6 @@ public class FragmentsCounterUI : MonoBehaviour
 
     public void SetFragments(int current, int total)
     {
-        fragmentsUI.text = current + " / " + total;
+        fragmentsUI.text = current + "/" + total;
     }
 }

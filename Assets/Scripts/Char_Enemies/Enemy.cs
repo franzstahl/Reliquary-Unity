@@ -5,7 +5,7 @@ public abstract class Enemy : MonoBehaviour, IHittable
 {
     protected enum EnemyState {Telegraph, Attack, Vulnerable, Recovery } // Define the possible states for the enemy
 
-    protected int maxHealth = 20;
+    protected int maxHealth = 25;
     protected int currentHealth;
     protected bool isDead = false;
     protected EnemyState currentState; // Define the current state of the enemy

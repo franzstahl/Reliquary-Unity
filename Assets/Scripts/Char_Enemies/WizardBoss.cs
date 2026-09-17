@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-public class WizardBoss : Enemy
+public class WizardBoss : Enemy, IHittable
 {
     private enum Phase { Attacking, Casting }
 
@@ -30,6 +30,7 @@ public class WizardBoss : Enemy
     protected override void Start()
     {
         base.Start();
+        maxHealth = 35;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -48,9 +49,13 @@ public class WizardBoss : Enemy
             currentPhase = Phase.Attacking;
             yield return new WaitForSeconds(attackPhaseDuration);
 
+            if (isDead) yield break;
+
             currentPhase = Phase.Casting;
             SetBaseTint(Color.cyan);
             yield return new WaitForSeconds(castDuration);
+
+            if (isDead) yield break;
 
             SetBaseTint(originalColor);
             FireBurst();
@@ -70,11 +75,14 @@ public class WizardBoss : Enemy
 
     public void SpawnFireball() // Called via Animation Event, fires a single magicball aimed at the player
     {
+        Debug.Log("Disparo");
         Vector2 direction = ((Vector2)player.position - (Vector2)firePoint.position).normalized;
+
+        spriteRenderer.flipX = player.position.x < transform.position.x; // Face the player´s side
 
         Fireball fireball = FireballPool.Instance.GetFireball();
         fireball.transform.position = firePoint.position;
-        fireball.Launch(direction, FireballType.Normal);
+        fireball.Launch(direction, FireballType.WizardBolt);
     }
 
     private void FireBurst() // Fires several magicballs in a circle after the casting window ends
@@ -86,18 +94,24 @@ public class WizardBoss : Enemy
 
             Fireball fireball = FireballPool.Instance.GetFireball();
             fireball.transform.position = firePoint.position;
-            fireball.Launch(direction, FireballType.Normal);
+            fireball.Launch(direction, FireballType.WizardBolt);
         }
     }
 
-    public override void RegisterHit()
+    public override void RegisterHit() // Handles getting hit by the player and triggers hit reaction
     {
         base.RegisterHit();
 
         if (!isDead)
         {
-            audioSource.PlayOneShot(hurtSound);
+            StartCoroutine(HitReaction());
         }
+    }
+
+    private IEnumerator HitReaction() // Handles the visual and audio feedback when the boss is hit
+    {
+        audioSource.PlayOneShot(hurtSound);
+        yield return StartCoroutine(Telegraph(Color.red, hitFlashDuration));
     }
 
     protected override void Die()
@@ -105,7 +119,6 @@ public class WizardBoss : Enemy
         base.Die();
 
         anim.SetTrigger("Death");
-        bodyCollider.enabled = false;
         audioSource.PlayOneShot(deathSound);
     }
 }

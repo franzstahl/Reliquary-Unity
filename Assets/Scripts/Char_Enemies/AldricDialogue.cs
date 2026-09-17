@@ -9,10 +9,9 @@ public class AldricInteraction : MonoBehaviour
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private bool loadSceneOnEnd = false;
+    [SerializeField] private string sceneToLoad;
 
-    [SerializeField] private AudioClip voiceSound;
-
-    private AudioSource audioSource;
     private bool isPlayerInRange;
     private bool didDialogueStart; // Flag to check if the dialogue has started
     private int lineIndex; // Index to keep track of the current line of dialogue
@@ -22,12 +21,7 @@ public class AldricInteraction : MonoBehaviour
 
     private Coroutine typingCoroutine; // Coroutine reference to manage the typing effect
 
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = voiceSound;
-        audioSource.loop = true;
-    }
+    
     private void Update()
     {
         if (isPlayerInRange && !hasTriggered)
@@ -44,7 +38,6 @@ public class AldricInteraction : MonoBehaviour
             {
                 StopCoroutine(typingCoroutine);
                 isTyping = false;
-                audioSource.Stop();
                 dialogueText.text = dialogueLines[lineIndex]; // Show the full line immediately
             }
             else
@@ -68,7 +61,6 @@ public class AldricInteraction : MonoBehaviour
     {
         isTyping = true;
         dialogueText.text = string.Empty; // Clear the dialogue text before showing the new line
-        audioSource.Play();
 
         foreach (char ch in dialogueLines[lineIndex])
         {
@@ -76,25 +68,30 @@ public class AldricInteraction : MonoBehaviour
             yield return new WaitForSeconds(typingTime); // Wait for a short duration before adding the next character
         }
 
-        audioSource.Stop();
         isTyping = false; // Finished without skipping
     }
 
-    private void NextLine() // Method to move to the next line of dialogue
+    private void NextLine()
     {
-        lineIndex++; // Move to the next line of dialogue
+        lineIndex++;
         if (lineIndex < dialogueLines.Count)
         {
-            typingCoroutine = StartCoroutine(ShowLine()); // Show the next line of dialogue
-
+            typingCoroutine = StartCoroutine(ShowLine());
         }
         else
         {
-            audioSource.Stop();
-            playerMovement.SetInputLocked(false);
-            didDialogueStart = false; 
             dialoguePanel.SetActive(false);
-            playerMovement.EnableJump();
+
+            if (loadSceneOnEnd)
+            {
+                GameManager.Instance.LoadSceneWithFade(sceneToLoad);
+            }
+            else
+            {
+                playerMovement.SetInputLocked(false);
+                didDialogueStart = false;
+                playerMovement.EnableJump();
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
