@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Zone5.unity
     guid: 2e03aea26dd2a95449e2473b8c6b89dd
   - enabled: 1
+    path: Assets/Scenes/FinalZone.unity
+    guid: 00117788b844ffb45b6db2a2eadb3c92
+  - enabled: 1
     path: Assets/Scenes/Lose.unity
     guid: 5e08637a85d2be1419b7e9ab0a0f7008
   - enabled: 1

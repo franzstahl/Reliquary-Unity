@@ -11,7 +11,7 @@ public class WizardBoss : Enemy, IHittable
     [SerializeField] private Collider2D bodyCollider;
     [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip deathSound;
-    //[SerializeField] private AudioClip attackSound;
+    [SerializeField] private GameObject exitLimit;
 
     [Header("Timings")]
     [SerializeField] private float attackPhaseDuration = 9f;
@@ -119,7 +119,14 @@ public class WizardBoss : Enemy, IHittable
         base.Die();
 
         anim.SetTrigger("Death");
+        bodyCollider.enabled = false;
         audioSource.PlayOneShot(deathSound);
+
+        if (exitLimit != null)
+        {
+            exitLimit.SetActive(false); // Disable the exit limit to allow the player to leave the area after defeating the boss
+        }
     }
 }
+
 

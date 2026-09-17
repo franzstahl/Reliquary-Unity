@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 
-public class AldricInteraction : MonoBehaviour
+public class AldricInteraction : MonoBehaviour, IInteractable
 {
     [SerializeField] private List<string> dialogueLines; // List to hold the lines of dialogue for Aldric
     [SerializeField] private TMP_Text dialogueText;
@@ -11,6 +11,7 @@ public class AldricInteraction : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private bool loadSceneOnEnd = false;
     [SerializeField] private string sceneToLoad;
+    [SerializeField] private string dialogueId;
 
     private bool isPlayerInRange;
     private bool didDialogueStart; // Flag to check if the dialogue has started
@@ -21,24 +22,36 @@ public class AldricInteraction : MonoBehaviour
 
     private Coroutine typingCoroutine; // Coroutine reference to manage the typing effect
 
-    
+    public void Interact()
+    {
+        if (GameManager.Instance.hasDialogueTriggered(dialogueId))
+        {
+            hasTriggered = true;
+
+            if (!loadSceneOnEnd)
+            {
+                playerMovement.EnableJump();
+            }
+        }
+        else if (!didDialogueStart)
+        {
+            StartDialogue();
+        }
+    }
     private void Update()
     {
         if (isPlayerInRange && !hasTriggered)
         {
-            if (!didDialogueStart)
-            {
-                StartDialogue();
-            }
+            Interact();
         }
 
         if (didDialogueStart && Input.GetMouseButtonDown(0))
         {
-            if (isTyping) // If the text is currently being typed, skip to the end of the line
+            if (isTyping)
             {
                 StopCoroutine(typingCoroutine);
                 isTyping = false;
-                dialogueText.text = dialogueLines[lineIndex]; // Show the full line immediately
+                dialogueText.text = dialogueLines[lineIndex];
             }
             else
             {
@@ -46,12 +59,13 @@ public class AldricInteraction : MonoBehaviour
             }
         }
     }
-
     private void StartDialogue() // Method to start the dialogue
     {
+       
         playerMovement.SetInputLocked(true);
         didDialogueStart = true;
         hasTriggered = true;
+        GameManager.Instance.MarkDialogueTriggered(dialogueId);
         dialoguePanel.SetActive(true);
         lineIndex = 0;
         typingCoroutine = StartCoroutine(ShowLine());

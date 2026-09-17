@@ -7,12 +7,29 @@ public class HealthbarUI : MonoBehaviour
     [SerializeField] private Image healthImage;
     [SerializeField] private List<Sprite> healthSprites;
 
-    // This method updates the health bar UI based on the player's current and maximum health.
-    // Using a list of sprites allows for a more flexible and scalable approach to representing different health states.
+    private void Start()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnHealthChanged += SetHealth;
+
+            SetHealth(
+                GameManager.Instance.CurrentHealth,
+                GameManager.Instance.MaxHealth
+            );
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnHealthChanged -= SetHealth;
+        }
+    }
+
     public void SetHealth(int currentHealth, int maxHealth)
     {
         healthImage.sprite = healthSprites[maxHealth - currentHealth];
     }
-
-
 }

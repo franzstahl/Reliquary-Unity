@@ -1,18 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NextLevel : MonoBehaviour
+public class NextLevel : MonoBehaviour, IInteractable
 {
     [SerializeField] private string nextSceneName; // The name of the next scene to load
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Ok");
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.LoadSceneWithFade(nextSceneName);
+            Interact();
         }
         
     }
 
-    
+    public void Interact()
+    {
+        GameManager.Instance.LoadSceneWithFade(nextSceneName);
+    }
 }
+    
+

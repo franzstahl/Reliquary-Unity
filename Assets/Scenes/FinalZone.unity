@@ -3193,6 +3193,7 @@ MonoBehaviour:
   playerMovement: {fileID: 1162953530}
   loadSceneOnEnd: 1
   sceneToLoad: Win
+  dialogueId: Outro
 --- !u!61 &1014839291
 BoxCollider2D:
   m_ObjectHideFlags: 0
